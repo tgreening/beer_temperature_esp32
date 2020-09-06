@@ -7,7 +7,6 @@
 #include <DallasTemperature.h>
 #include <ArduinoJson.h>
 #include "BluetoothSerial.h"
-
 #define TEMPERATURE_PRECISION 12
 
 BluetoothSerial SerialBT;
@@ -33,8 +32,11 @@ DeviceAddress tempDeviceAddress;
 void setup() {
   // Start the Serial Monitor
   Serial.begin(115200);
+  Serial.println("Setting up...");
   // Start the DS18B20 sensor
   sensors.begin();
+    Serial.println("After Sensor begin...");
+
   SerialBT.begin("Brew Thermometer - ESP32"); //Bluetooth device name
 }
 
